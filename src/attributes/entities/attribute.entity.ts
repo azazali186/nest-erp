@@ -1,0 +1,26 @@
+/* eslint-disable prettier/prettier */
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+
+export class Attribute {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column({ default: true })
+  isActive: boolean;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt: string;
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+    onUpdate: 'NOW()',
+    nullable: true,
+  })
+  updatedAt: string;
+}

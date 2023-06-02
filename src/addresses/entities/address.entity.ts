@@ -1,0 +1,44 @@
+/* eslint-disable prettier/prettier */
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+
+export class Address {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column({ default: null, nullable: true })
+  name: string;
+
+  @Column({ default: null, nullable: true })
+  contactNumber: string;
+
+  @Column({ nullable: true })
+  cidyId: string;
+
+  @Column({ nullable: true })
+  stateId: string;
+
+  @Column({ nullable: true })
+  countryId: string;
+
+  @Column({ default: null, nullable: true })
+  pincode: string;
+
+  @Column({ default: true })
+  isActive: boolean;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt: string;
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+    onUpdate: 'NOW()',
+    nullable: true,
+  })
+  updatedAt: string;
+}
