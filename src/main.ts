@@ -5,10 +5,12 @@ import { AppModule } from './app.module';
 import { DataSource } from 'typeorm';
 
 import * as mysqlDriver from 'mysql2';
+import { VersioningType } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     abortOnError: false,
+    logger: ['error', 'warn'],
   });
   const AppDataSource = new DataSource({
     driver: mysqlDriver,
@@ -26,6 +28,11 @@ async function bootstrap() {
   AppDataSource.initialize();
 
   app.enableCors();
+
+  app.enableVersioning({
+    type: VersioningType.URI,
+  });
+
   await app.listen(3000);
 }
 bootstrap();

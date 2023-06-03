@@ -93,6 +93,8 @@ import { Vendor } from './vendors/entities/vendor.entity';
 import { PincodeModule } from './pincode/pincode.module';
 import { Pincode } from './pincode/entities/pincode.entity';
 import { Order } from './orders/entities/order.entity';
+import { DataSource } from 'typeorm';
+import { BullModule } from '@nestjs/bull';
 
 const EntityList = [
   Address,
@@ -145,10 +147,6 @@ const EntityList = [
 const ImportList = [
   TypeOrmModule.forRoot({
     type: 'mysql',
-    username: 'root',
-  }),
-  TypeOrmModule.forRoot({
-    type: 'mysql',
     host: 'localhost',
     username: 'root',
     password: null,
@@ -158,6 +156,12 @@ const ImportList = [
     autoLoadEntities: false,
 
     synchronize: true,
+  }),
+  BullModule.forRoot({
+    redis: {
+      host: 'localhost',
+      port: 8547,
+    },
   }),
   AddressesModule,
   AttendancesModule,
@@ -213,6 +217,7 @@ const ImportList = [
   providers: [],
 })
 export class AppModule implements NestModule {
+  constructor(private dataSource: DataSource) {}
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(

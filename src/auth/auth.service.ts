@@ -2,18 +2,28 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { User } from 'src/users/entities/user.entity';
+import { CreateUserDto } from 'src/users/dto/create-user.dto';
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectRepository(User)
     private authRepository: Repository<User>,
+    private dataSource: DataSource,
   ) {}
 
-  async register(user: User): Promise<User> {
-    return await this.authRepository.save(user);
+  async register(user: CreateUserDto): Promise<User> {
+    let data: any;
+    await this.dataSource.transaction(async (manager) => {
+      try {
+        data = await manager.save(user);
+      } catch (error) {
+        data = { error: error.sqlMessage, code: error.code };
+      }
+    });
+    return data;
   }
 
   async findByUsername(username: string): Promise<User | undefined> {
