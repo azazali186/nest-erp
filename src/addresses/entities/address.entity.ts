@@ -41,4 +41,9 @@ export class Address {
     nullable: true,
   })
   updatedAt: string;
+  @DeleteDateColumn({
+    type: 'timestamp',
+    nullable: true,
+  })
+  deletedAt: string;
 }

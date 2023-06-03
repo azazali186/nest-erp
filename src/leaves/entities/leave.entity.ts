@@ -29,7 +29,7 @@ export class Leave {
   financialYearId: string;
 
   @Column()
-  emaployeeId: string;
+  EmployeeId: string;
 
   @Column({ default: true })
   isActive: boolean;

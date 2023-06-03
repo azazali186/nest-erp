@@ -22,6 +22,9 @@ export class LeaveApproval {
   @Column()
   toDate: string;
 
+  @Column()
+  statusId: string;
+
   @Column({ nullable: true })
   approverRemarks: string;
 

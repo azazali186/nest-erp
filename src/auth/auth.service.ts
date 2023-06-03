@@ -13,13 +13,15 @@ export class AuthService {
   ) {}
 
   async register(user: User): Promise<User> {
-    return this.authRepository.save(user);
+    return await this.authRepository.save(user);
   }
 
   async findByUsername(username: string): Promise<User | undefined> {
-    return this.authRepository.findOne({ where :{
-      email : username
-    } });
+    return this.authRepository.findOne({
+      where: {
+        email: username,
+      },
+    });
   }
 
   findAll() {

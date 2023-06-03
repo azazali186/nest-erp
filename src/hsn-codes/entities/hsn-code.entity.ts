@@ -14,7 +14,7 @@ export class HsnCode {
   code: string;
 
   @Column()
-  taxId: string;
+  taxRateId: string;
 
   @Column({ default: true })
   isActive: boolean;

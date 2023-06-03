@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { HsnCodesService } from './hsn-codes.service';
 import { CreateHsnCodeDto } from './dto/create-hsn-code.dto';
 import { UpdateHsnCodeDto } from './dto/update-hsn-code.dto';
@@ -19,16 +27,16 @@ export class HsnCodesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.hsnCodesService.findOne(+id);
+    return this.hsnCodesService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateHsnCodeDto: UpdateHsnCodeDto) {
-    return this.hsnCodesService.update(+id, updateHsnCodeDto);
+    return this.hsnCodesService.update(id, updateHsnCodeDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.hsnCodesService.remove(+id);
+    return this.hsnCodesService.remove(id);
   }
 }

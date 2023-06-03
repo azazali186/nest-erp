@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { StatesService } from './states.service';
 import { CreateStateDto } from './dto/create-state.dto';
 import { UpdateStateDto } from './dto/update-state.dto';
@@ -19,16 +27,16 @@ export class StatesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.statesService.findOne(+id);
+    return this.statesService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateStateDto: UpdateStateDto) {
-    return this.statesService.update(+id, updateStateDto);
+    return this.statesService.update(id, updateStateDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.statesService.remove(+id);
+    return this.statesService.remove(id);
   }
 }

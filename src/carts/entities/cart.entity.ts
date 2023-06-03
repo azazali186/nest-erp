@@ -37,4 +37,10 @@ export class Cart {
     nullable: true,
   })
   updatedAt: string;
+
+  @DeleteDateColumn({
+    type: 'timestamp',
+    nullable: true,
+  })
+  deletedAt: string;
 }

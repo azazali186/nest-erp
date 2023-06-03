@@ -1,9 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateStatusDto } from './dto/create-status.dto';
 import { UpdateStatusDto } from './dto/update-status.dto';
+import { Status } from './entities/status.entity';
 
 @Injectable()
 export class StatusService {
+  constructor(
+    @InjectRepository(Status)
+    private statussRepository: Repository<Status>,
+  ) {}
+
   create(createStatusDto: CreateStatusDto) {
     return 'This action adds a new status';
   }
@@ -12,15 +20,15 @@ export class StatusService {
     return `This action returns all status`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} status`;
   }
 
-  update(id: number, updateStatusDto: UpdateStatusDto) {
+  update(id: string, updateStatusDto: UpdateStatusDto) {
     return `This action updates a #${id} status`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} status`;
   }
 }

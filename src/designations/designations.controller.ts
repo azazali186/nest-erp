@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { DesignationsService } from './designations.service';
 import { CreateDesignationDto } from './dto/create-designation.dto';
 import { UpdateDesignationDto } from './dto/update-designation.dto';
@@ -19,16 +27,19 @@ export class DesignationsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.designationsService.findOne(+id);
+    return this.designationsService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDesignationDto: UpdateDesignationDto) {
-    return this.designationsService.update(+id, updateDesignationDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateDesignationDto: UpdateDesignationDto,
+  ) {
+    return this.designationsService.update(id, updateDesignationDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.designationsService.remove(+id);
+    return this.designationsService.remove(id);
   }
 }

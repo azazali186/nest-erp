@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AttributesService } from './attributes.service';
 import { CreateAttributeDto } from './dto/create-attribute.dto';
 import { UpdateAttributeDto } from './dto/update-attribute.dto';
@@ -19,16 +27,19 @@ export class AttributesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.attributesService.findOne(+id);
+    return this.attributesService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAttributeDto: UpdateAttributeDto) {
-    return this.attributesService.update(+id, updateAttributeDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateAttributeDto: UpdateAttributeDto,
+  ) {
+    return this.attributesService.update(id, updateAttributeDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.attributesService.remove(+id);
+    return this.attributesService.remove(id);
   }
 }

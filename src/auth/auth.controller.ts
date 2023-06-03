@@ -32,7 +32,7 @@ export class AuthController {
     const user = new User();
     user.email = userData.email;
     user.password = hashedPassword;
-    return this.authService.register(user);
+    return await this.authService.register(user);
   }
 
   @Get()
@@ -44,5 +44,4 @@ export class AuthController {
   findOne(@Param('id') id: string) {
     return this.authService.findOne(id);
   }
-
 }

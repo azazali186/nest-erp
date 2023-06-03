@@ -1,3 +1,4 @@
+import { Request } from 'express';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -8,12 +9,15 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Logger {
+export class AuditLogger {
+  save() {
+    throw new Error('Method not implemented.');
+  }
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
-  request: string;
+  @Column('longtext')
+  data: string;
 
   @Column()
   method: string;

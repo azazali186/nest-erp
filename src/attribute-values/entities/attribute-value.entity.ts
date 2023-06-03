@@ -26,4 +26,10 @@ export class AttributeValue {
     nullable: true,
   })
   updatedAt: string;
+
+  @DeleteDateColumn({
+    type: 'timestamp',
+    nullable: true,
+  })
+  deletedAt: string;
 }

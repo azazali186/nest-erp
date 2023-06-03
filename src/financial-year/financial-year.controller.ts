@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { FinancialYearService } from './financial-year.service';
 import { CreateFinancialYearDto } from './dto/create-financial-year.dto';
 import { UpdateFinancialYearDto } from './dto/update-financial-year.dto';
@@ -19,16 +27,19 @@ export class FinancialYearController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.financialYearService.findOne(+id);
+    return this.financialYearService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFinancialYearDto: UpdateFinancialYearDto) {
-    return this.financialYearService.update(+id, updateFinancialYearDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateFinancialYearDto: UpdateFinancialYearDto,
+  ) {
+    return this.financialYearService.update(id, updateFinancialYearDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.financialYearService.remove(+id);
+    return this.financialYearService.remove(id);
   }
 }

@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { LeaveApprovalsService } from './leave-approvals.service';
 import { CreateLeaveApprovalDto } from './dto/create-leave-approval.dto';
 import { UpdateLeaveApprovalDto } from './dto/update-leave-approval.dto';
@@ -19,16 +27,19 @@ export class LeaveApprovalsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.leaveApprovalsService.findOne(+id);
+    return this.leaveApprovalsService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateLeaveApprovalDto: UpdateLeaveApprovalDto) {
-    return this.leaveApprovalsService.update(+id, updateLeaveApprovalDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateLeaveApprovalDto: UpdateLeaveApprovalDto,
+  ) {
+    return this.leaveApprovalsService.update(id, updateLeaveApprovalDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.leaveApprovalsService.remove(+id);
+    return this.leaveApprovalsService.remove(id);
   }
 }
