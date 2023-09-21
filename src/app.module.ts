@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
@@ -92,7 +91,6 @@ import { PincodeModule } from './pincode/pincode.module';
 import { Pincode } from './pincode/entities/pincode.entity';
 import { Order } from './orders/entities/order.entity';
 import { DataSource } from 'typeorm';
-import { BullModule } from '@nestjs/bull';
 
 const EntityList = [
   Address,

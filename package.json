@@ -34,13 +34,11 @@
     "@nestjs/platform-express": "latest",
     "@nestjs/typeorm": "latest",
     "bcrypt": "latest",
-    "bull": "latest",
     "cache-manager": "latest",
     "class-transformer": "latest",
     "class-validator": "latest",
     "cors": "latest",
     "helmet": "latest",
-    "pg": "latest",
     "reflect-metadata": "latest",
     "rxjs": "latest",
     "typeorm": "latest"

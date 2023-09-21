@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { DataSource } from 'typeorm';
 import * as mysqlDriver from 'mysql2';
 
