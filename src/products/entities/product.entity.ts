@@ -1,10 +1,17 @@
+import { Category } from 'src/categories/entities/category.entity';
+import { ProductCategory } from 'src/product-categories/entities/product-category.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
+@Entity()
 export class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -17,6 +24,12 @@ export class Product {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @OneToMany(
+    () => ProductCategory,
+    (productCategory) => productCategory.product,
+  )
+  productCategories: ProductCategory[];
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;

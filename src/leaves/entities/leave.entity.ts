@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
+  Entity,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
+@Entity()
 export class Leave {
   @PrimaryGeneratedColumn('uuid')
   id: string;

@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
+  Entity,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
+@Entity()
 export class ProductPrice {
   @PrimaryGeneratedColumn('uuid')
   id: string;

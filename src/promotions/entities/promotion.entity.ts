@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
+  Entity,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
+@Entity()
 export class Promotion {
   @PrimaryGeneratedColumn('uuid')
   id: string;

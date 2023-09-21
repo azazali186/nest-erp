@@ -3,9 +3,11 @@ import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
+  Entity,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
+@Entity()
 export class Attendance {
   @PrimaryGeneratedColumn('uuid')
   id: string;

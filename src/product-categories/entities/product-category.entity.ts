@@ -1,22 +1,26 @@
+import { Category } from 'src/categories/entities/category.entity';
+import { Product } from 'src/products/entities/product.entity';
 import {
-  Column,
   CreateDateColumn,
   DeleteDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
+@Entity()
 export class ProductCategory {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ nullable: false })
-  productId: string;
+  @ManyToOne(() => Product, (product) => product.productCategories)
+  @JoinColumn({ name: 'productId' })
+  product: Product;
 
-  @Column({ nullable: false })
-  categoryIds: Array<string>;
-
-  @Column({ nullable: true })
-  subCategoryIds: Array<string>;
+  @ManyToOne(() => Category, (category) => category.productCategories)
+  @JoinColumn({ name: 'categoryId' })
+  category: Category;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;

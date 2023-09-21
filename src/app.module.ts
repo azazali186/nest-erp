@@ -31,7 +31,6 @@ import { CitiesModule } from './cities/cities.module';
 import { TranslationsModule } from './translations/translations.module';
 import { CompaniesModule } from './companies/companies.module';
 import { DesignationsModule } from './designations/designations.module';
-import { SubCategoriesModule } from './sub-categories/sub-categories.module';
 import { TagsModule } from './tags/tags.module';
 import { PromotionsModule } from './promotions/promotions.module';
 import { ProductPromotionsModule } from './product-promotions/product-promotions.module';
@@ -85,7 +84,6 @@ import { Promotion } from './promotions/entities/promotion.entity';
 import { Salary } from './salaries/entities/salary.entity';
 import { State } from './states/entities/state.entity';
 import { Status } from './status/entities/status.entity';
-import { SubCategory } from './sub-categories/entities/sub-category.entity';
 import { Tag } from './tags/entities/tag.entity';
 import { TaxRate } from './tax-rates/entities/tax-rate.entity';
 import { Translation } from './translations/entities/translation.entity';
@@ -136,7 +134,6 @@ const EntityList = [
   Salary,
   State,
   Status,
-  SubCategory,
   Tag,
   TaxRate,
   Translation,
@@ -152,7 +149,7 @@ const ImportList = [
     username: 'root',
     password: 'Aj189628@',
     database: 'nest-erp',
-    entities: [],
+    entities: EntityList,
     synchronize: true,
     autoLoadEntities: true,
     logging: true,
@@ -198,7 +195,6 @@ const ImportList = [
   SalariesModule,
   StatesModule,
   StatusModule,
-  SubCategoriesModule,
   TagsModule,
   TaxRatesModule,
   TranslationsModule,
@@ -276,7 +272,6 @@ export class AppModule implements NestModule {
         SalariesModule,
         StatesModule,
         StatusModule,
-        SubCategoriesModule,
         TagsModule,
         TaxRatesModule,
         TranslationsModule,
