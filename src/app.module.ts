@@ -147,21 +147,16 @@ const EntityList = [
 const ImportList = [
   TypeOrmModule.forRoot({
     type: 'mysql',
-    host: 'localhost',
+    host: '127.0.0.1',
+    port: 3306,
     username: 'root',
-    password: null,
+    password: 'Aj189628@',
     database: 'nest-erp',
-    entities: EntityList,
-    // entities: ['./**/entities/*.entity.ts'],
-    autoLoadEntities: false,
-
+    entities: [],
     synchronize: true,
-  }),
-  BullModule.forRoot({
-    redis: {
-      host: 'localhost',
-      port: 8547,
-    },
+    autoLoadEntities: true,
+    logging: true,
+    logger: 'file',
   }),
   AddressesModule,
   AttendancesModule,

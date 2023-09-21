@@ -4,7 +4,6 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
 export class Attribute {
@@ -17,11 +16,6 @@ export class Attribute {
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: string;
 
-  @UpdateDateColumn({
-    type: 'timestamp',
-    onUpdate: 'NOW()',
-    nullable: true,
-  })
   updatedAt: string;
 
   @DeleteDateColumn({

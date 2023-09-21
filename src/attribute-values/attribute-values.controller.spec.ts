@@ -11,7 +11,9 @@ describe('AttributeValuesController', () => {
       providers: [AttributeValuesService],
     }).compile();
 
-    controller = module.get<AttributeValuesController>(AttributeValuesController);
+    controller = module.get<AttributeValuesController>(
+      AttributeValuesController,
+    );
   });
 
   it('should be defined', () => {

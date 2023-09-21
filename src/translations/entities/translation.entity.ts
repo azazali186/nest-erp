@@ -3,7 +3,6 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
 export class Translation {
@@ -22,17 +21,12 @@ export class Translation {
   @Column()
   fieldName: string;
 
-  @Column({ type: 'longtext' })
+  @Column({ type: 'text' })
   translations: string;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
 
-  @UpdateDateColumn({
-    type: 'timestamp',
-    onUpdate: 'NOW()',
-    nullable: true,
-  })
   updatedAt: Date;
 
   @DeleteDateColumn({

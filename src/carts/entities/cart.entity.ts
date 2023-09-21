@@ -3,7 +3,6 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
 export class Cart {
@@ -31,11 +30,6 @@ export class Cart {
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: string;
 
-  @UpdateDateColumn({
-    type: 'timestamp',
-    onUpdate: 'NOW()',
-    nullable: true,
-  })
   updatedAt: string;
 
   @DeleteDateColumn({

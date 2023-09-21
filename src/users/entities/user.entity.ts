@@ -5,7 +5,6 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -29,10 +28,5 @@ export class User {
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: string;
 
-  @UpdateDateColumn({
-    type: 'timestamp',
-    onUpdate: 'NOW()',
-    nullable: true,
-  })
   updatedAt: string;
 }

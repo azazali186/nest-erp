@@ -4,7 +4,6 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
 export class Attendance {
@@ -26,11 +25,6 @@ export class Attendance {
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: string;
 
-  @UpdateDateColumn({
-    type: 'timestamp',
-    onUpdate: 'NOW()',
-    nullable: true,
-  })
   updatedAt: string;
 
   @DeleteDateColumn({

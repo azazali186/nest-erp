@@ -4,7 +4,6 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
   DeleteDateColumn,
 } from 'typeorm';
 
@@ -16,7 +15,7 @@ export class AuditLogger {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('longtext')
+  @Column('text')
   data: string;
 
   @Column()
@@ -34,11 +33,6 @@ export class AuditLogger {
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
 
-  @UpdateDateColumn({
-    type: 'timestamp',
-    onUpdate: 'NOW()',
-    nullable: true,
-  })
   updatedAt: Date;
 
   @DeleteDateColumn({
