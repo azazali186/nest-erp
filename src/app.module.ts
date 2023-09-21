@@ -24,7 +24,6 @@ import { DepartmentsModule } from './modules/departments.module';
 import { AuthModule } from './modules/auth.module';
 import { UsersModule } from './modules/users.module';
 import helmet from 'helmet';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { AttributeValuesModule } from './modules/attribute-values.module';
 import { CitiesModule } from './modules/cities.module';
 import { TranslationsModule } from './modules/translations.module';
@@ -47,56 +46,7 @@ import { ImagesModule } from './modules/images.module';
 import { ProductAttributesModule } from './modules/product-attributes.module';
 import { PincodeModule } from './modules/pincode.module';
 import { DataSource } from 'typeorm';
-import { typeOrmConfig } from './config/typeOrm.config';
-
-const ImportList = [
-  TypeOrmModule.forRoot(typeOrmConfig),
-  AddressesModule,
-  AttendancesModule,
-  AttributeValuesModule,
-  AttributesModule,
-  AuthModule,
-  CartsModule,
-  CategoriesModule,
-  CitiesModule,
-  CompaniesModule,
-  ConfigurationsModule,
-  CountriesModule,
-  CurrenciesModule,
-  CustomersModule,
-  DepartmentsModule,
-  DesignationsModule,
-  EmployeesModule,
-  FinancialYearModule,
-  HsnCodesModule,
-  ImagesModule,
-  LanguagesModule,
-  LeaveApprovalsModule,
-  LeavesModule,
-  LoggersModule,
-  OrdersModule,
-  OrderDetailsModule,
-  PaymentMethodsModule,
-  PaymentsModule,
-  PincodeModule,
-  PermissionsModule,
-  ProductAttributesModule,
-  ProductCategoriesModule,
-  ProductPricesModule,
-  ProductPromotionsModule,
-  ProductStocksModule,
-  ProductTagsModule,
-  ProductsModule,
-  PromotionsModule,
-  SalariesModule,
-  StatesModule,
-  StatusModule,
-  TagsModule,
-  TaxRatesModule,
-  TranslationsModule,
-  UsersModule,
-  VendorsModule,
-];
+import { ImportList } from './config/importList.config';
 
 @Module({
   imports: ImportList,
