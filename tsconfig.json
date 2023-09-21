@@ -17,5 +17,7 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
-  }
+  },
+  "include": ["src/**/*.ts"], // Source files to be compiled
+  "exclude": ["node_modules"] // Folders to be excluded from compilation
 }
